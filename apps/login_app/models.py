@@ -48,4 +48,4 @@ class User(models.Model):
     objects = Manager()
 
     def __str__(self):
-        return User.objects.email()
+        return "<User Object: {} {} {} {}>".format(self.fname, self.lname, self.email, self.password)
