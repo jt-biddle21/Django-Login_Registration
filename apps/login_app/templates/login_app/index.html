@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login and Registration</title>
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <h2>Welcome to the LoginReg homepage!</h2>
+        <h4>To begin, login, or register is you haven't already!</h4>
+        <form id="regform" action="/register" method="POST">
+            {% csrf_token %}
+            <label for="name">First Name: <input id="name" type="text" name="fname"></label><br>
+            <label for="last">Last Name: <input id="last" type="text" name="lname"></label><br>
+            <label for="email">Email: <input id="email" type="text" name="email"></label><br>
+            <label for="pass">Password: <input id="pass" type="password" name="password"></label><br>
+            <label for="conf">Confirm Password: <input id="conf" type="password" name="confpw"></label><br>
+            <input type="submit" value="Register">
+        </form>
+        <h5>If you already registered, log in here!</h5>
+        <form id="loginform" action='/login' method='post'>
+            {% csrf_token %}
+            <label for="logem">Email: <input id="logem" type="text" name="Lemail"></label>
+            <label for="logpass">Password: <input id="logpass" type="password" name="Lpassword"></label>
+            <input type="submit" value="Log In">
+        </form>
+    </body>
+</html>
